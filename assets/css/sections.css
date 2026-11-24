@@ -1,0 +1,1265 @@
+/* Estilos de cada seção da home. Ordem e conteúdo: specs/plano-site.md, seção 8. */
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 560px;
+  padding-block: var(--space-8) calc(var(--sobreposicao) + var(--space-7));
+  background: var(--navy);
+  color: var(--branco);
+}
+
+.hero__midia,
+.hero__midia img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.hero__midia img {
+  object-fit: cover;
+  object-position: 65% 45%;
+}
+
+/* Mobile: gradiente vertical, mais forte embaixo, onde fica o texto (≥ 78% sob texto) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    var(--overlay-leve) 0%,
+    var(--overlay-texto) 30%,
+    var(--overlay-forte) 100%
+  );
+}
+
+.hero__conteudo {
+  max-width: 590px;
+}
+
+.hero .eyebrow {
+  color: var(--branco);   /* mist reprova sobre foto (plano 6) */
+}
+
+.hero .lead {
+  margin-top: var(--space-4);
+  color: var(--branco);
+}
+
+.hero__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 479.98px) {
+  .hero__acoes .btn {
+    flex: 1 1 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    align-items: center;
+    min-height: 600px;
+  }
+
+  /* Tablet e desktop: gradiente horizontal, texto à esquerda (≥ 78% sob texto) */
+  .hero::before {
+    background: linear-gradient(
+      90deg,
+      var(--overlay-forte) 0%,
+      var(--overlay-texto) 55%,
+      var(--overlay-leve) 100%
+    );
+  }
+
+  .hero .lead {
+    margin-top: var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: max(640px, min(86vh, 760px));
+    padding-block: var(--space-10) calc(var(--sobreposicao) + var(--space-9));
+  }
+}
+
+/* ---------- Card de resumo sobreposto ao hero ---------- */
+.resumo {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * var(--sobreposicao));
+}
+
+.resumo__cartao {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 996px;          /* 10 das 12 colunas em 1200 px */
+  margin-inline: auto;
+  padding: var(--space-5);
+  border-radius: var(--raio-md);
+  background: var(--branco);
+  box-shadow: var(--sombra-md);
+}
+
+.resumo__titulo {
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+  max-width: 20ch;
+}
+
+.resumo__texto {
+  margin-top: var(--space-3);
+  color: var(--tinta);
+  max-width: 60ch;
+}
+
+.resumo__itens {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.resumo__item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: var(--space-3);
+  align-items: start;
+  align-content: start;   /* itens de alturas diferentes alinham pelo topo */
+}
+
+.resumo__item .icone {
+  color: var(--blue);
+  margin-top: 2px;
+}
+
+.resumo__item strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.resumo__item p {
+  margin-top: var(--space-1);
+  font-size: var(--fs-pequeno);
+  line-height: 1.5;
+  color: var(--tinta);
+}
+
+@media (min-width: 768px) {
+  .resumo__cartao {
+    padding: var(--space-6) 40px;
+  }
+
+  .resumo__itens {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Ícone, título e texto de cada pilar ficam em linhas compartilhadas (subgrid):
+     um título de 3 linhas não empurra só o texto dele para baixo. */
+  .resumo__item {
+    grid-template-columns: 1fr;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: var(--space-2);
+  }
+
+  .resumo__item > div {
+    display: contents;
+  }
+
+  .resumo__item .icone {
+    margin: 0 0 var(--space-1);
+  }
+
+  .resumo__item p {
+    margin-top: 0;
+  }
+}
+
+/* Desktop: título em cima e os três pilares lado a lado embaixo (como no tablet).
+   Com 3 colunas estreitas ao lado do título, o pilar "Híbrido (36% presencial / 64% online)"
+   ocupava 3 linhas e abria um vão sob os outros dois. */
+@media (min-width: 1024px) {
+  .resumo__cartao {
+    gap: var(--space-6);
+    padding: var(--space-7);
+  }
+
+  .resumo__itens {
+    gap: var(--space-2) var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--linha);
+  }
+}
+
+.resumo {
+  padding-bottom: var(--space-8);
+}
+
+/* ---------- 5. Faixa de números ---------- */
+.numeros {
+  padding-block: var(--space-7);
+}
+
+.numeros__lista {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6) var(--gutter);
+  list-style: none;
+}
+
+.numeros__lista li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.numeros__valor {
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-numero);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--gold);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.numeros__valor--texto {
+  font-size: var(--fs-h2);
+  line-height: 1.1;
+}
+
+.numeros__rotulo {
+  max-width: 24ch;
+  text-wrap: balance;   /* sem palavra sozinha na 2ª linha ("reais") */
+  font-size: var(--fs-pequeno);
+  line-height: 1.45;
+  color: var(--mist);
+}
+
+@media (min-width: 1024px) {
+  .numeros {
+    padding-block: var(--space-8);
+  }
+
+  .numeros__lista {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .numeros__lista li + li {
+    padding-left: var(--gutter);
+    border-left: 1px solid var(--slate);
+  }
+
+  .numeros__lista li {
+    justify-content: flex-start;   /* números na mesma linha, mesmo com rótulos de 1 ou 2 linhas */
+  }
+}
+
+/* ---------- 6. Os três MBAs ---------- */
+.cursos__lista {
+  display: grid;
+  gap: var(--space-5);
+  list-style: none;
+}
+
+.curso {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--raio-md);
+  background: var(--navy);
+  color: var(--branco);
+}
+
+/* Mobile: foto 4:3 em cima, texto embaixo sobre navy sólido */
+.curso__midia img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.curso__conteudo {
+  padding: var(--space-5);
+}
+
+.curso .eyebrow {
+  color: var(--mist);
+  margin-bottom: var(--space-2);
+}
+
+.curso__nome {
+  max-width: 24ch;   /* nomes completos ("MBA em ...") cabem em 2 linhas */
+}
+
+.curso__descricao {
+  margin-top: var(--space-3);
+  max-width: 46ch;
+}
+
+.curso__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  list-style: none;
+}
+
+.curso .chip {
+  background: rgb(255 255 255 / 0.15);
+  color: var(--branco);
+}
+
+.curso__detalhes {
+  margin-top: var(--space-5);
+}
+
+.curso__painel {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgb(255 255 255 / 0.25);
+}
+
+.curso__fatos {
+  display: grid;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  list-style: none;
+  font-size: var(--fs-pequeno);
+  line-height: 1.55;
+  max-width: 56ch;
+  -webkit-hyphens: manual;
+  hyphens: manual;      /* sem hifenização automática nos detalhes: evita "trade-/offs" e cortes estranhos */
+}
+
+.curso__fatos strong {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-family: var(--fonte-titulo);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--branco);
+}
+
+/* Disciplinas / Eixos em lista, um eixo por linha */
+.curso__eixos {
+  display: grid;
+  gap: var(--space-1);
+  padding-left: 1.1em;
+  list-style: disc;
+}
+
+.curso__eixos li::marker {
+  color: var(--gold);
+}
+
+/* Tablet e desktop: foto de fundo 3:1, texto à esquerda sobre o overlay (≥ 78% sob texto) */
+@media (min-width: 768px) {
+  .curso {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+  }
+
+  .curso__midia,
+  .curso__midia img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    aspect-ratio: auto;
+  }
+
+  .curso::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      var(--overlay-forte) 0%,
+      var(--overlay-texto) 55%,
+      var(--overlay-leve) 100%
+    );
+  }
+
+  .curso__conteudo {
+    width: min(100%, 620px);
+    padding: var(--space-7);
+  }
+
+  .curso--claro::before {
+    /* foto muito clara (Finanças): overlay mínimo de 80% em toda a área de texto */
+    background: linear-gradient(
+      90deg,
+      var(--overlay-forte) 0%,
+      rgb(19 50 113 / 0.82) 60%,
+      rgb(19 50 113 / 0.6) 100%
+    );
+  }
+}
+
+.curso__midia img[data-foco="estrategia"] { object-position: 60% 35%; }
+.curso__midia img[data-foco="dados"] { object-position: 60% 50%; }
+.curso__midia img[data-foco="financas"] { object-position: 62% 45%; }
+
+/* ---------- 7. Por que este MBA ---------- */
+.porque__lista {
+  display: grid;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.porque__item {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+}
+
+.porque__topo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.porque__numero {
+  font-family: var(--fonte-titulo);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--blue);
+  font-variant-numeric: tabular-nums;
+}
+
+.porque__topo .icone {
+  width: 32px;
+  height: 32px;
+  color: var(--slate);
+}
+
+.porque__item h3 {
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  color: var(--navy);
+  max-width: 24ch;
+}
+
+.porque__foto {
+  margin-top: var(--space-7);
+  border-radius: var(--raio-md);
+  overflow: hidden;
+}
+
+.porque__foto img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 55% 45%;
+}
+
+/* 4 itens: 2 × 2 no tablet, 4 colunas no desktop.
+   Número, título e texto alinhados entre colunas (subgrid), mesmo com títulos de 1 ou 2 linhas. */
+@media (min-width: 768px) {
+  .porque__lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-7) var(--gutter);
+  }
+
+  .porque__item {
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    row-gap: var(--space-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .porque__lista {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+}
+
+@media (min-width: 768px) {
+
+  .porque__foto img {
+    aspect-ratio: 12 / 5;
+  }
+}
+
+/* ---------- 8. Formato ---------- */
+.formato__grade {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.formato__texto .lead {
+  margin-top: var(--space-4);
+}
+
+.formato__blocos {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  list-style: none;
+}
+
+.formato__bloco {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  column-gap: var(--space-3);
+  align-items: start;
+  align-content: start;
+}
+
+.formato__bloco .icone {
+  color: var(--blue);
+  margin-top: 2px;
+}
+
+.formato__bloco h3 {
+  font-size: var(--fs-h4);
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.formato__bloco p {
+  margin-top: var(--space-1);
+}
+
+.formato__midia img {
+  width: 100%;
+  border-radius: var(--raio-md);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .formato__grade {
+    grid-template-columns: 5fr 1fr 6fr;
+    gap: 0;
+  }
+
+  .formato__midia {
+    grid-column: 1;
+  }
+
+  .formato__texto {
+    grid-column: 3;
+  }
+
+  /* Forma recortada (uso contido): um canto cortado, uma foto por seção */
+  .formato__midia img {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--raio-md) var(--raio-md) 0 var(--raio-md);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 48px), calc(100% - 48px) 100%, 0 100%);
+  }
+}
+
+/* ---------- 9. Aula aberta: banner + inscrição ----------
+   Composição inspirada no banner de referência (selos no topo, chamada, data e horário
+   embaixo, dois cards de professores à direita numa moldura translúcida), na paleta do site. */
+.banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-6) var(--space-5);
+  border-radius: 16px;
+}
+
+/* Ornamento de arcos finos em slate sobre navy (design.md: linhas finas, sem cor) */
+.banner__ornamento {
+  position: absolute;
+  right: -180px;
+  bottom: -220px;
+  z-index: -1;
+  width: 720px;
+  height: 720px;
+  fill: none;
+  stroke: var(--slate);
+  stroke-width: 1;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.banner__selos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  list-style: none;
+}
+
+.banner__selos li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 36px;
+  padding: 0 var(--space-4);
+  border: 1px solid rgb(255 255 255 / 0.22);
+  border-radius: var(--raio-total);
+  background: rgb(255 255 255 / 0.06);
+  font-size: var(--fs-pequeno);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.banner__selos .icone {
+  width: 18px;
+  height: 18px;
+  color: var(--gold);
+}
+
+.banner__ponto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgb(198 167 106 / 0.25);
+}
+
+.banner h2 {
+  font-size: var(--fs-h1);
+  line-height: 1.04;
+  max-width: 12ch;
+}
+
+.banner__sub {
+  margin-top: var(--space-4);
+  font-size: var(--fs-lead);
+  line-height: 1.45;
+  color: var(--mist);
+  max-width: 34ch;
+}
+
+.banner__modulos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  list-style: none;
+}
+
+.banner__modulos li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--raio-sm);
+  background: rgb(255 255 255 / 0.1);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.banner__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.banner__logo {
+  width: auto;
+  height: 64px;
+}
+
+.banner__quando {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.banner__quando li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border-radius: var(--raio-sm);
+  background: var(--branco);
+  color: var(--navy);
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.banner__quando .icone {
+  width: 18px;
+  height: 18px;
+  color: var(--blue);
+}
+
+/* Moldura translúcida com os dois professores */
+.banner__profs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  align-self: center;
+  padding: var(--space-3);
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 16px;
+  background: rgb(255 255 255 / 0.06);
+}
+
+.prof {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border-radius: var(--raio-md);
+  background: var(--slate);
+}
+
+.prof--azul {
+  background: var(--blue);
+}
+
+/* Retrato mais alto que o corte 4:5: rosto no terço de cima, legenda embaixo sem cobrir o rosto */
+.prof img {
+  width: 100%;
+  aspect-ratio: 3 / 4.4;
+  object-fit: cover;
+  object-position: 50% 12%;
+}
+
+/* Legenda sobre a foto: navy ≥ 85% sob o texto */
+.prof figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 2px;
+  padding: var(--space-6) var(--space-3) var(--space-3);
+  background: linear-gradient(180deg, rgb(19 50 113 / 0) 0%, rgb(19 50 113 / 0.88) 38%, rgb(19 50 113 / 0.95) 100%);
+  text-align: center;
+}
+
+.prof strong {
+  font-family: var(--fonte-titulo);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--branco);
+}
+
+.prof span {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--mist);
+}
+
+/* Celular: legenda embaixo da foto (sobre a foto ela cobriria o rosto) e selos/datas compactos */
+@media (max-width: 767.98px) {
+  .prof figcaption {
+    position: static;
+    padding: var(--space-3) var(--space-2);
+    background: var(--navy);
+  }
+
+  .prof img {
+    aspect-ratio: 4 / 5;
+  }
+
+  .banner__selos li,
+  .banner__quando li {
+    padding: 0 var(--space-3);
+    font-size: 0.8125rem;
+  }
+
+  .banner__quando li {
+    min-height: 40px;
+  }
+
+  .banner__logo {
+    height: 52px;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner {
+    padding: var(--space-7);
+  }
+
+  .banner__profs {
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .prof strong {
+    font-size: 1.0625rem;
+  }
+
+  .prof span {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .banner {
+    grid-template-columns: 6fr 5fr;
+    gap: var(--space-7);
+    align-items: center;
+    padding: var(--space-8) var(--space-7);
+  }
+}
+
+/* Inscrição logo abaixo do banner */
+.inscricao {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--gutter);
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid var(--linha);
+  border-radius: 16px;
+  background: var(--branco);
+}
+
+.inscricao h3 {
+  color: var(--navy);
+}
+
+.inscricao__intro > p {
+  margin-top: var(--space-3);
+  color: var(--tinta);
+}
+
+.inscricao__fatos {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  list-style: none;
+  font-size: var(--fs-pequeno);
+  line-height: 1.5;
+}
+
+.inscricao__fatos li {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.inscricao__fatos .icone {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  color: var(--blue);
+}
+
+.aula__nota {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--linha);
+  font-size: var(--fs-pequeno);
+  color: var(--slate);
+}
+
+.aula__nota strong {
+  color: var(--navy);
+}
+
+@media (min-width: 768px) {
+  .inscricao {
+    padding: var(--space-7);
+  }
+
+  /* Campos em duas colunas; consentimento, botão e status ocupam a linha inteira */
+  .inscricao .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-5);
+    align-items: start;
+  }
+
+  .inscricao .form > .consentimento,
+  .inscricao .form > .btn,
+  .inscricao .form > .form__status {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inscricao {
+    grid-template-columns: 4fr 8fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+}
+/* ---------- 11. Certificado, descontos e isenção ---------- */
+.condicoes__grade {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.certificado {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* ao lado do card de investimento (mais alto), o conteúdo fica centrado */
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--raio-md);
+}
+
+.certificado__selo {
+  width: 72px;
+  height: 72px;
+  margin-bottom: var(--space-5);
+  color: var(--gold);
+  stroke-width: 1.25;
+}
+
+.certificado h3,
+.investimento h3 {
+  margin-bottom: var(--space-3);
+}
+
+.certificado p + p {
+  margin-top: var(--space-3);
+}
+
+/* Filete dourado fino (acento, não área grande) */
+.certificado::after {
+  content: "";
+  position: absolute;
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: 0;
+  height: 3px;
+  background: var(--gold);
+}
+
+.investimento {
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-md);
+}
+
+.investimento h3 {
+  color: var(--navy);
+}
+
+/* Preço em destaque: valor grande numa linha, parcelamento na linha de baixo */
+.investimento__preco {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+  color: var(--slate);
+}
+
+.investimento__valor {
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--navy);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.investimento__parcela strong {
+  color: var(--navy);
+}
+
+.investimento__lista strong {
+  margin-bottom: var(--space-1);
+}
+
+.investimento__lista {
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
+
+.investimento__lista {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-5) 0 var(--space-6);
+  list-style: none;
+}
+
+.investimento__lista li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--space-3);
+}
+
+.investimento__lista .icone {
+  color: var(--blue);
+}
+
+.investimento__lista strong {
+  display: block;
+  color: var(--navy);
+}
+
+@media (min-width: 768px) {
+  .certificado,
+  .investimento {
+    padding: var(--space-7);
+  }
+
+  .certificado::after {
+    left: var(--space-7);
+    right: var(--space-7);
+  }
+}
+
+@media (min-width: 1024px) {
+  .condicoes__grade {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+/* ---------- 12. FAQ + contato ---------- */
+.faq__grade {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.faq__lista {
+  border-top: 1px solid var(--linha);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--linha);
+}
+
+.faq__item > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: 56px;
+  padding: var(--space-4) var(--space-1);
+  cursor: pointer;
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-h4);
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--navy);
+}
+
+.faq__item > summary:hover {
+  color: var(--blue);
+}
+
+.faq__item > summary .icone {
+  width: 24px;
+  height: 24px;
+  color: var(--blue);
+}
+
+.faq__resposta {
+  padding: 0 var(--space-1) var(--space-5);
+  max-width: 60ch;
+}
+
+.contato {
+  padding: var(--space-6) var(--space-5);
+  border-radius: var(--raio-md);
+}
+
+.contato h2 {
+  font-size: var(--fs-h3);
+}
+
+.contato > p {
+  margin: var(--space-3) 0 var(--space-5);
+  color: var(--mist);
+}
+
+@media (min-width: 768px) {
+  .contato {
+    padding: var(--space-7);
+  }
+}
+
+@media (min-width: 1024px) {
+  .faq__grade {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  .faq__perguntas {
+    order: 2;
+  }
+}
+
+/* ---------- 13. Faixa final de CTA ---------- */
+.cta-final {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-8);
+  background: var(--navy);
+  color: var(--branco);
+}
+
+.cta-final__midia,
+.cta-final__midia img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.cta-final__midia img {
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+.cta-final::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(19 50 113 / 0.85);
+}
+
+.cta-final .lead {
+  margin-top: var(--space-4);
+}
+
+.cta-final__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (max-width: 479.98px) {
+  .cta-final__acoes .btn {
+    flex: 1 1 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cta-final {
+    min-height: 360px;
+  }
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  padding-block: var(--space-7) var(--space-6);
+  background: var(--navy);
+  color: var(--mist);
+  border-top: 1px solid var(--slate);
+}
+
+.rodape__grade {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.rodape .marca {
+  align-items: flex-start;
+  color: var(--branco);
+}
+
+.rodape .marca__nome span {
+  color: var(--mist);
+}
+
+.rodape .marca__sub {
+  color: var(--mist);
+}
+
+.rodape .marca--logo .marca__sub {
+  border-left-color: var(--slate);
+}
+
+.marca__logo--rodape {
+  height: 72px;
+}
+
+.rodape__sobre {
+  margin-top: var(--space-4);
+  font-size: var(--fs-pequeno);
+  max-width: 36ch;
+}
+
+.rodape h2 {
+  margin-bottom: var(--space-3);
+  font-family: var(--fonte-texto);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--branco);
+}
+
+.rodape ul {
+  display: grid;
+  gap: var(--space-1);
+  list-style: none;
+  font-size: var(--fs-pequeno);
+}
+
+/* Itens com e sem link no mesmo ritmo vertical (contato tem texto puro e links) */
+.rodape li {
+  padding-block: 4px;
+  line-height: 1.45;
+}
+
+.rodape li > a {
+  min-height: 0;
+}
+
+.rodape a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  color: var(--mist);
+  text-decoration: none;
+}
+
+.rodape a:hover {
+  color: var(--branco);
+  text-decoration: underline;
+}
+
+.rodape__legal {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--slate);
+  font-size: 0.8125rem;
+  max-width: none;
+}
+
+@media (min-width: 768px) {
+  .rodape__grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .rodape {
+    padding-block: var(--space-8) var(--space-6);
+  }
+
+  .rodape__grade {
+    grid-template-columns: 4fr 2fr 3fr 3fr;
+    gap: var(--gutter);
+  }
+}

@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBA FEA-USP | Educação Executiva</title>
+  <meta name="description" content="Mais prática. Mais FEA. Três MBAs de especialização da FEA-USP, com 400 horas cada, em formato híbrido: Gestão Estratégica e Liderança, Dados e IA Aplicados aos Negócios, e Finanças Corporativas e Geração de Valor.">
+  <meta name="theme-color" content="#133271">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="MBA FEA-USP | Educação Executiva">
+  <meta property="og:description" content="A escola de negócios da USP, com projetos reais em empresas, mentoria de carreira e a rede da FEA para quem quer crescer sem parar de trabalhar.">
+  <meta property="og:image" content="assets/img/og-compartilhamento-1200.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script>
+    (function () {
+      var r = document.documentElement;
+      r.classList.add('js');
+      // Animações de entrada só com movimento permitido; se o main.js falhar, o hero aparece mesmo assim
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        r.classList.add('anim');
+        setTimeout(function () { r.classList.add('hero-pronto'); }, 2000);
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..600&family=Inter+Tight:wght@500..700&display=swap">
+
+  <!-- Imagem do hero: maior elemento da primeira tela, carregada com prioridade -->
+  <link rel="preload" as="image" type="image/avif" media="(min-width: 768px)"
+        imagesrcset="assets/img/hero-desktop-640.avif 640w, assets/img/hero-desktop-960.avif 960w, assets/img/hero-desktop-1280.avif 1280w, assets/img/hero-desktop-1920.avif 1920w, assets/img/hero-desktop-2250.avif 2250w"
+        imagesizes="100vw">
+  <link rel="preload" as="image" type="image/avif" media="(max-width: 767.98px)"
+        imagesrcset="assets/img/hero-mobile-480.avif 480w, assets/img/hero-mobile-720.avif 720w, assets/img/hero-mobile-960.avif 960w"
+        imagesizes="100vw">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <!-- Ícones (traço fino, uma família só) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-seta" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-hibrido" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="11" rx="1.5"/><path d="M2 19h20"/><path d="M10 9.5l2 1.5-2 1.5z"/></symbol>
+    <symbol id="i-selo" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 13.9 7 21l5-2.5 5 2.5-1.5-7.1"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M21 12a9 9 0 0 1-13.4 7.9L3 21l1.2-4.4A9 9 0 1 1 21 12z"/></symbol>
+    <symbol id="i-email" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-empresa" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></symbol>
+    <symbol id="i-professor" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></symbol>
+    <symbol id="i-rede" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.6-3.4 3.3-5.5 6.5-5.5s5.9 2.1 6.5 5.5"/><circle cx="17" cy="9" r="2.5"/><path d="M16.5 14.6c2.6.2 4.4 2 4.9 4.9"/></symbol>
+    <symbol id="i-online" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-local" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-desconto" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-mentoria" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+    <symbol id="i-inscricao" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m9 13 2 2 4-4"/></symbol>
+    <symbol id="i-isencao" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-certificado" viewBox="0 0 72 72"><circle cx="36" cy="30" r="20"/><circle cx="36" cy="30" r="14"/><path d="M26 47 22 66l14-7 14 7-4-19"/><path d="m29 30 5 5 9-10"/></symbol>
+  </svg>
+
+  <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- 1. Barra superior (só desktop) -->
+  <div class="topbar">
+    <div class="container">
+      <ul class="topbar__lista">
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+          <span>(11)&nbsp;98765-4321</span>
+        </li>
+        <li>
+          <svg class="icone" aria-hidden="true"><use href="#i-email"/></svg>
+          <span class="quebra-livre">mba.executiva@feausp-simulado.usp.br</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2. Cabeçalho -->
+  <header class="cabecalho" id="cabecalho">
+    <div class="container cabecalho__barra">
+      <a class="marca marca--logo" href="#topo" aria-label="MBA FEA-USP, Educação Executiva, início da página">
+        <picture>
+          <source type="image/webp" srcset="assets/img/logo/logo-mba-fea-usp-64.webp 1x, assets/img/logo/logo-mba-fea-usp-128.webp 2x">
+          <img class="marca__logo" src="assets/img/logo/logo-mba-fea-usp-64.png" srcset="assets/img/logo/logo-mba-fea-usp-128.png 2x" width="54" height="64" alt="">
+        </picture>
+        <span class="marca__sub">Educação<br>Executiva</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Principal">
+        <div class="menu__topo">
+          <span class="marca marca--logo" aria-hidden="true">
+            <img class="marca__logo" src="assets/img/logo/logo-mba-fea-usp-64.png" srcset="assets/img/logo/logo-mba-fea-usp-128.png 2x" width="54" height="64" alt="">
+            <span class="marca__sub">Educação<br>Executiva</span>
+          </span>
+          <button class="botao-menu" type="button" data-fechar-menu aria-label="Fechar menu">
+            <svg class="icone" aria-hidden="true"><use href="#i-fechar"/></svg>
+          </button>
+        </div>
+        <ul class="menu__lista">
+          <li><a class="menu__link" href="#cursos">Cursos</a></li>
+          <li><a class="menu__link" href="#formato">Formato</a></li>
+          <li><a class="menu__link" href="#diferenciais">Diferenciais</a></li>
+          <li><a class="menu__link" href="#aula-aberta">Aula aberta</a></li>
+          <li><a class="menu__link" href="#faq">FAQ</a></li>
+        </ul>
+        <div class="menu__cta">
+          <a class="btn btn--principal" href="#aula-aberta">
+            Quero a aula aberta
+            <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+        </div>
+      </nav>
+
+      <div class="cabecalho__acoes">
+        <a class="btn btn--principal cabecalho__cta" href="#aula-aberta">
+          Aula aberta
+          <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+        </a>
+        <button class="botao-menu" type="button" aria-controls="menu" aria-expanded="false" data-abrir-menu aria-label="Abrir menu">
+          <svg class="icone" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- 3. Hero -->
+    <section class="hero" id="topo" aria-labelledby="hero-titulo">
+      <picture class="hero__midia">
+        <source media="(min-width: 768px)" type="image/avif" sizes="100vw"
+                srcset="assets/img/hero-desktop-640.avif 640w, assets/img/hero-desktop-960.avif 960w, assets/img/hero-desktop-1280.avif 1280w, assets/img/hero-desktop-1920.avif 1920w, assets/img/hero-desktop-2250.avif 2250w">
+        <source media="(min-width: 768px)" type="image/webp" sizes="100vw"
+                srcset="assets/img/hero-desktop-640.webp 640w, assets/img/hero-desktop-960.webp 960w, assets/img/hero-desktop-1280.webp 1280w, assets/img/hero-desktop-1920.webp 1920w, assets/img/hero-desktop-2250.webp 2250w">
+        <source media="(min-width: 768px)" type="image/jpeg" sizes="100vw"
+                srcset="assets/img/hero-desktop-640.jpg 640w, assets/img/hero-desktop-960.jpg 960w, assets/img/hero-desktop-1280.jpg 1280w, assets/img/hero-desktop-1920.jpg 1920w, assets/img/hero-desktop-2250.jpg 2250w">
+        <source type="image/avif" sizes="100vw"
+                srcset="assets/img/hero-mobile-480.avif 480w, assets/img/hero-mobile-720.avif 720w, assets/img/hero-mobile-960.avif 960w">
+        <source type="image/webp" sizes="100vw"
+                srcset="assets/img/hero-mobile-480.webp 480w, assets/img/hero-mobile-720.webp 720w, assets/img/hero-mobile-960.webp 960w">
+        <img src="assets/img/hero-mobile-720.jpg"
+             srcset="assets/img/hero-mobile-480.jpg 480w, assets/img/hero-mobile-720.jpg 720w, assets/img/hero-mobile-960.jpg 960w"
+             sizes="100vw" width="720" height="900"
+             alt="Estudantes em um auditório da FEA-USP assistindo a uma aula"
+             fetchpriority="high" decoding="async">
+      </picture>
+
+      <div class="container">
+        <div class="hero__conteudo">
+          <p class="eyebrow">MBA · Extensão universitária USP</p>
+          <h1 id="hero-titulo">Mais prática. Mais&nbsp;FEA.</h1>
+          <p class="lead">A escola de negócios da USP, com projetos reais em empresas, mentoria de carreira e a rede da FEA para quem quer crescer sem parar de&nbsp;trabalhar.</p>
+          <div class="hero__acoes">
+            <a class="btn btn--principal" href="#aula-aberta">
+              Quero a aula aberta
+              <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+            </a>
+            <a class="btn btn--contorno-claro" href="#cursos">Conheça os MBAs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Card de resumo sobreposto ao hero -->
+    <section class="resumo" aria-labelledby="resumo-titulo">
+      <div class="container">
+        <div class="resumo__cartao">
+          <div>
+            <p class="eyebrow">O portfólio</p>
+            <h2 class="resumo__titulo" id="resumo-titulo">Três MBAs. <span class="sem-quebra">Um mesmo padrão&nbsp;USP.</span></h2>
+            <p class="resumo__texto">Transforme o conhecimento dos professores da graduação da FEA em resultado no seu trabalho — pelo preço de um MBA&nbsp;USP.</p>
+          </div>
+          <ul class="resumo__itens">
+            <li class="resumo__item">
+              <svg class="icone" aria-hidden="true"><use href="#i-relogio"/></svg>
+              <div>
+                <strong>400&nbsp;horas</strong>
+                <p>360h de aula + 40h de TCC, em especialização de extensão universitária da&nbsp;USP.</p>
+              </div>
+            </li>
+            <li class="resumo__item">
+              <svg class="icone" aria-hidden="true"><use href="#i-hibrido"/></svg>
+              <div>
+                <strong>Híbrido (36% presencial / 64%&nbsp;online)</strong>
+                <p>Aulas online ao vivo em noites de semana e encontros presenciais na FEA&#8209;USP, ao menos uma vez por&nbsp;mês.</p>
+              </div>
+            </li>
+            <li class="resumo__item">
+              <svg class="icone" aria-hidden="true"><use href="#i-selo"/></svg>
+              <div>
+                <strong>Prática e Mentoria</strong>
+                <p>Projetos reais com empresas, mentoria individual de carreira e certificado FEA&#8209;USP.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Faixa de números -->
+    <section class="numeros tema-escuro" aria-label="O MBA em números">
+      <div class="container">
+        <ul class="numeros__lista">
+          <li>
+            <span class="numeros__valor">3</span>
+            <span class="numeros__rotulo">MBAs de especialização</span>
+          </li>
+          <li>
+            <span class="numeros__valor">400&nbsp;h</span>
+            <span class="numeros__rotulo">360h de aula + 40h de TCC (18&nbsp;meses)</span>
+          </li>
+          <li>
+            <span class="numeros__valor">40</span>
+            <span class="numeros__rotulo">alunos por turma, com projetos reais</span>
+          </li>
+          <li>
+            <span class="numeros__valor">10%</span>
+            <span class="numeros__rotulo">das vagas com isenção integral</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Os três MBAs -->
+    <section class="secao fundo-suave" id="cursos" aria-labelledby="cursos-titulo">
+      <div class="container">
+        <div class="secao__cabeca">
+          <p class="eyebrow">Os MBAs</p>
+          <h2 id="cursos-titulo">Escolha a área em que você quer <span class="destaque">decidir melhor</span>.</h2>
+          <p class="lead">Os três cursos têm 400&nbsp;horas (360h de aula + 40h de TCC), formato híbrido e certificado USP. O que muda é a área em que você aplica o que aprende.</p>
+        </div>
+
+        <ul class="cursos__lista">
+          <!-- Gestão Estratégica e Liderança -->
+          <li>
+            <article class="curso" aria-labelledby="curso-mkt">
+              <picture class="curso__midia">
+                <source media="(min-width: 768px)" type="image/avif" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-estrategia-desktop-800.avif 800w, assets/img/curso-estrategia-desktop-1200.avif 1200w, assets/img/curso-estrategia-desktop-1280.avif 1280w">
+                <source media="(min-width: 768px)" type="image/webp" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-estrategia-desktop-800.webp 800w, assets/img/curso-estrategia-desktop-1200.webp 1200w, assets/img/curso-estrategia-desktop-1280.webp 1280w">
+                <source media="(min-width: 768px)" type="image/jpeg" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-estrategia-desktop-800.jpg 800w, assets/img/curso-estrategia-desktop-1200.jpg 1200w, assets/img/curso-estrategia-desktop-1280.jpg 1280w">
+                <source type="image/avif" sizes="calc(100vw - 32px)"
+                        srcset="assets/img/curso-estrategia-mobile-480.avif 480w, assets/img/curso-estrategia-mobile-720.avif 720w, assets/img/curso-estrategia-mobile-960.avif 960w">
+                <source type="image/webp" sizes="calc(100vw - 32px)"
+                        srcset="assets/img/curso-estrategia-mobile-480.webp 480w, assets/img/curso-estrategia-mobile-720.webp 720w, assets/img/curso-estrategia-mobile-960.webp 960w">
+                <img src="assets/img/curso-estrategia-mobile-720.jpg"
+                     srcset="assets/img/curso-estrategia-mobile-480.jpg 480w, assets/img/curso-estrategia-mobile-720.jpg 720w, assets/img/curso-estrategia-mobile-960.jpg 960w"
+                     sizes="calc(100vw - 32px)" width="720" height="540" loading="lazy" decoding="async" data-foco="estrategia"
+                     alt="Professor conduzindo uma discussão em grupo com alunos em uma sala da FEA-USP">
+              </picture>
+              <div class="curso__conteudo">
+                <p class="eyebrow">Especialização gerencial</p>
+                <h3 class="curso__nome" id="curso-mkt">MBA em Gestão Estratégica e&nbsp;Liderança</h3>
+                <p class="curso__descricao">Integre planejamento estratégico, gestão de pessoas, inovação e tomada de decisão para liderar equipes e&nbsp;transformações.</p>
+                <ul class="curso__chips" aria-label="Características">
+                  <li class="chip">400&nbsp;h</li>
+                  <li class="chip">Híbrido</li>
+                  <li class="chip">Certificado USP</li>
+                </ul>
+                <details class="expansivel curso__detalhes">
+                  <summary class="btn btn--contorno-claro">
+                    <span class="quando-fechado">Saiba mais</span><span class="quando-aberto">Fechar detalhes</span>
+                    <svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg>
+                  </summary>
+                  <div class="curso__painel">
+                    <ul class="curso__fatos">
+                      <li><strong>Foco</strong>Planejamento estratégico, liderança, gestão de pessoas e inovação para formar gestores capazes de liderar equipes e transformações.</li>
+                      <li><strong>Diferencial prático</strong>Tomada de decisões sob incerteza: desenvolvimento e revisão de estratégias para empresas reais diante de mudanças de cenário, defendendo escolhas e trade&#8209;offs.</li>
+                      <li><strong>Formato</strong>400h (360h de aula + 40h de TCC) em 18 meses · Aulas online ao vivo em noites de semana e encontros presenciais na FEA&#8209;USP.</li>
+                      <li><strong>Disciplinas / Eixos</strong>
+                        <ul class="curso__eixos">
+                          <li>Planejamento Estratégico e Gestão de Cenários;</li>
+                          <li>Gestão de Pessoas, Liderança e Influência;</li>
+                          <li>Inovação e Modelos de Negócio;</li>
+                          <li>Tomada de Decisão sob Incerteza e Análise de Trade&#8209;offs;</li>
+                          <li>Projeto Aplicado em Empresa Real e TCC.</li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <a class="btn btn--principal" href="#aula-aberta">
+                      Quero a aula aberta
+                      <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+                    </a>
+                  </div>
+                </details>
+              </div>
+            </article>
+          </li>
+
+          <!-- Liderança, Dados e IA -->
+          <li>
+            <article class="curso" aria-labelledby="curso-lid">
+              <picture class="curso__midia">
+                <source media="(min-width: 768px)" type="image/avif" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-dados-desktop-800.avif 800w, assets/img/curso-dados-desktop-1200.avif 1200w, assets/img/curso-dados-desktop-1280.avif 1280w">
+                <source media="(min-width: 768px)" type="image/webp" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-dados-desktop-800.webp 800w, assets/img/curso-dados-desktop-1200.webp 1200w, assets/img/curso-dados-desktop-1280.webp 1280w">
+                <source media="(min-width: 768px)" type="image/jpeg" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-dados-desktop-800.jpg 800w, assets/img/curso-dados-desktop-1200.jpg 1200w, assets/img/curso-dados-desktop-1280.jpg 1280w">
+                <source type="image/avif" sizes="calc(100vw - 32px)"
+                        srcset="assets/img/curso-dados-mobile-480.avif 480w, assets/img/curso-dados-mobile-720.avif 720w, assets/img/curso-dados-mobile-960.avif 960w">
+                <source type="image/webp" sizes="calc(100vw - 32px)"
+                        srcset="assets/img/curso-dados-mobile-480.webp 480w, assets/img/curso-dados-mobile-720.webp 720w, assets/img/curso-dados-mobile-960.webp 960w">
+                <img src="assets/img/curso-dados-mobile-720.jpg"
+                     srcset="assets/img/curso-dados-mobile-480.jpg 480w, assets/img/curso-dados-mobile-720.jpg 720w, assets/img/curso-dados-mobile-960.jpg 960w"
+                     sizes="calc(100vw - 32px)" width="720" height="540" loading="lazy" decoding="async" data-foco="dados"
+                     alt="Alunos trabalhando com notebooks em mesas redondas de uma sala de aula da FEA-USP">
+              </picture>
+              <div class="curso__conteudo">
+                <p class="eyebrow">Especialização em inovação</p>
+                <h3 class="curso__nome" id="curso-lid">MBA em Dados e IA Aplicados aos&nbsp;Negócios</h3>
+                <p class="curso__descricao">Utilize análise de dados e inteligência artificial em decisões empresariais, de business analytics e IA generativa à&nbsp;governança.</p>
+                <ul class="curso__chips" aria-label="Características">
+                  <li class="chip">400&nbsp;h</li>
+                  <li class="chip">Híbrido</li>
+                  <li class="chip">Certificado USP</li>
+                </ul>
+                <details class="expansivel curso__detalhes">
+                  <summary class="btn btn--contorno-claro">
+                    <span class="quando-fechado">Saiba mais</span><span class="quando-aberto">Fechar detalhes</span>
+                    <svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg>
+                  </summary>
+                  <div class="curso__painel">
+                    <ul class="curso__fatos">
+                      <li><strong>Foco</strong>Uso de análise de dados e inteligência artificial em decisões empresariais, abrangendo business analytics, IA generativa, automação, indicadores e governança de dados.</li>
+                      <li><strong>Diferencial prático</strong>Desenvolvimento de soluções de IA para problemas empresariais reais, seguido de avaliação cruzada entre equipes para identificar falhas, vieses, riscos e limitações antes da implementação.</li>
+                      <li><strong>Formato</strong>400h (360h de aula + 40h de TCC) em 18 meses · Aulas online ao vivo em noites de semana e encontros presenciais na FEA&#8209;USP.</li>
+                      <li><strong>Disciplinas / Eixos</strong>
+                        <ul class="curso__eixos">
+                          <li>Business Analytics, Métricas e Indicadores;</li>
+                          <li>Inteligência Artificial Generativa e Automação;</li>
+                          <li>Governança de Dados, Qualidade e Ética;</li>
+                          <li>Avaliação Cruzada de Falhas, Vieses e Riscos;</li>
+                          <li>Projeto Aplicado em Empresa Real e TCC.</li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <a class="btn btn--principal" href="#aula-aberta">
+                      Quero a aula aberta
+                      <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+                    </a>
+                  </div>
+                </details>
+              </div>
+            </article>
+          </li>
+
+          <!-- Finanças -->
+          <li>
+            <article class="curso curso--claro" aria-labelledby="curso-fin">
+              <picture class="curso__midia">
+                <source media="(min-width: 768px)" type="image/avif" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-financas-desktop-800.avif 800w, assets/img/curso-financas-desktop-1200.avif 1200w, assets/img/curso-financas-desktop-1280.avif 1280w">
+                <source media="(min-width: 768px)" type="image/webp" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-financas-desktop-800.webp 800w, assets/img/curso-financas-desktop-1200.webp 1200w, assets/img/curso-financas-desktop-1280.webp 1280w">
+                <source media="(min-width: 768px)" type="image/jpeg" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                        srcset="assets/img/curso-financas-desktop-800.jpg 800w, assets/img/curso-financas-desktop-1200.jpg 1200w, assets/img/curso-financas-desktop-1280.jpg 1280w">
+                <source type="image/avif" sizes="calc(100vw - 32px)"
+                        srcset="assets/img/curso-financas-mobile-480.avif 480w, assets/img/curso-financas-mobile-720.avif 720w, assets/img/curso-financas-mobile-960.avif 960w">
+                <source type="image/webp" sizes="calc(100vw - 32px)"
+                        srcset="assets/img/curso-financas-mobile-480.webp 480w, assets/img/curso-financas-mobile-720.webp 720w, assets/img/curso-financas-mobile-960.webp 960w">
+                <img src="assets/img/curso-financas-mobile-720.jpg"
+                     srcset="assets/img/curso-financas-mobile-480.jpg 480w, assets/img/curso-financas-mobile-720.jpg 720w, assets/img/curso-financas-mobile-960.jpg 960w"
+                     sizes="calc(100vw - 32px)" width="720" height="540" loading="lazy" decoding="async" data-foco="financas"
+                     alt="Professor apresentando para alunos em um auditório da FEA-USP">
+              </picture>
+              <div class="curso__conteudo">
+                <p class="eyebrow">Especialização funcional</p>
+                <h3 class="curso__nome" id="curso-fin">MBA em Finanças Corporativas e Geração de&nbsp;Valor</h3>
+                <p class="curso__descricao">Formação para decisões financeiras estratégicas: planejamento financeiro, valuation, investimentos, gestão de riscos e criação de&nbsp;valor.</p>
+                <ul class="curso__chips" aria-label="Características">
+                  <li class="chip">400&nbsp;h</li>
+                  <li class="chip">Híbrido</li>
+                  <li class="chip">Certificado USP</li>
+                </ul>
+                <details class="expansivel curso__detalhes">
+                  <summary class="btn btn--contorno-claro">
+                    <span class="quando-fechado">Saiba mais</span><span class="quando-aberto">Fechar detalhes</span>
+                    <svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg>
+                  </summary>
+                  <div class="curso__painel">
+                    <ul class="curso__fatos">
+                      <li><strong>Foco</strong>Decisões financeiras estratégicas envolvendo planejamento financeiro, valuation, alocação de capital, gestão de riscos e criação de valor empresarial.</li>
+                      <li><strong>Diferencial prático</strong>Simulação de comitês de investimento, em que os alunos defendem e questionam propostas financeiras reais, avaliando riscos e resultados para decidir sobre sua aprovação.</li>
+                      <li><strong>Formato</strong>400h (360h de aula + 40h de TCC) em 18 meses · Aulas online ao vivo em noites de semana e encontros presenciais na FEA&#8209;USP.</li>
+                      <li><strong>Disciplinas / Eixos</strong>
+                        <ul class="curso__eixos">
+                          <li>Planejamento Financeiro e Orçamento Empresarial;</li>
+                          <li>Valuation e Análise de Investimentos;</li>
+                          <li>Alocação de Capital e Estrutura Financeira;</li>
+                          <li>Gestão de Riscos e Criação de Valor;</li>
+                          <li>Simulação de Comitê de Investimento e TCC.</li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <a class="btn btn--principal" href="#aula-aberta">
+                      Quero a aula aberta
+                      <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+                    </a>
+                  </div>
+                </details>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Por que este MBA -->
+    <section class="secao" id="diferenciais" aria-labelledby="porque-titulo">
+      <div class="container">
+        <div class="secao__cabeca">
+          <p class="eyebrow">Diferenciais</p>
+          <h2 id="porque-titulo">Mais prática. Mais&nbsp;<span class="destaque">FEA</span>.</h2>
+        </div>
+
+        <ol class="porque__lista">
+          <li class="porque__item">
+            <div class="porque__topo">
+              <span class="porque__numero" aria-hidden="true">01</span>
+              <svg class="icone" aria-hidden="true"><use href="#i-empresa"/></svg>
+            </div>
+            <h3>Projetos reais com empresas</h3>
+            <p>Você aplica as ferramentas do curso em desafios de empresas reais — com projeto no portfólio e avaliação prática —, não apenas em estudos de caso&nbsp;teóricos.</p>
+          </li>
+          <li class="porque__item">
+            <div class="porque__topo">
+              <span class="porque__numero" aria-hidden="true">02</span>
+              <svg class="icone" aria-hidden="true"><use href="#i-professor"/></svg>
+            </div>
+            <h3>Professores da graduação da FEA</h3>
+            <p>Acesso direto aos docentes que também dão aula na graduação da FEA&#8209;USP, unindo rigor acadêmico e aplicação no&nbsp;mercado.</p>
+          </li>
+          <li class="porque__item">
+            <div class="porque__topo">
+              <span class="porque__numero" aria-hidden="true">03</span>
+              <svg class="icone" aria-hidden="true"><use href="#i-mentoria"/></svg>
+            </div>
+            <h3>Mentoria individual de carreira</h3>
+            <p>Acompanhamento de carreira para apoiar o crescimento profissional de quem busca evoluir sem parar de&nbsp;trabalhar.</p>
+          </li>
+          <li class="porque__item">
+            <div class="porque__topo">
+              <span class="porque__numero" aria-hidden="true">04</span>
+              <svg class="icone" aria-hidden="true"><use href="#i-rede"/></svg>
+            </div>
+            <h3>Turmas de 40 alunos e certificado USP</h3>
+            <p>Turmas de até 40 alunos com foco na Região Metropolitana de São Paulo, rede de contatos e certificado de especialização da&nbsp;USP.</p>
+          </li>
+        </ol>
+
+        <picture class="porque__foto">
+          <source media="(min-width: 768px)" type="image/avif" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                  srcset="assets/img/rede-contatos-desktop-800.avif 800w, assets/img/rede-contatos-desktop-1200.avif 1200w, assets/img/rede-contatos-desktop-1280.avif 1280w">
+          <source media="(min-width: 768px)" type="image/webp" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                  srcset="assets/img/rede-contatos-desktop-800.webp 800w, assets/img/rede-contatos-desktop-1200.webp 1200w, assets/img/rede-contatos-desktop-1280.webp 1280w">
+          <source media="(min-width: 768px)" type="image/jpeg" sizes="(min-width: 1264px) 1200px, calc(100vw - 48px)"
+                  srcset="assets/img/rede-contatos-desktop-800.jpg 800w, assets/img/rede-contatos-desktop-1200.jpg 1200w, assets/img/rede-contatos-desktop-1280.jpg 1280w">
+          <source type="image/avif" sizes="calc(100vw - 32px)"
+                  srcset="assets/img/rede-contatos-mobile-480.avif 480w, assets/img/rede-contatos-mobile-720.avif 720w, assets/img/rede-contatos-mobile-960.avif 960w">
+          <source type="image/webp" sizes="calc(100vw - 32px)"
+                  srcset="assets/img/rede-contatos-mobile-480.webp 480w, assets/img/rede-contatos-mobile-720.webp 720w, assets/img/rede-contatos-mobile-960.webp 960w">
+          <img src="assets/img/rede-contatos-mobile-720.jpg"
+               srcset="assets/img/rede-contatos-mobile-480.jpg 480w, assets/img/rede-contatos-mobile-720.jpg 720w, assets/img/rede-contatos-mobile-960.jpg 960w"
+               sizes="calc(100vw - 32px)" width="720" height="540" loading="lazy" decoding="async"
+               alt="Alunos e professora conversando em uma atividade em grupo na FEA-USP">
+        </picture>
+      </div>
+    </section>
+
+    <!-- 8. Formato -->
+    <section class="secao fundo-suave" id="formato" aria-labelledby="formato-titulo">
+      <div class="container formato__grade">
+        <picture class="formato__midia">
+          <source media="(min-width: 1024px)" type="image/avif" sizes="(min-width: 1264px) 486px, 40vw"
+                  srcset="assets/img/presencial-predio-desktop-480.avif 480w, assets/img/presencial-predio-desktop-720.avif 720w, assets/img/presencial-predio-desktop-960.avif 960w, assets/img/presencial-predio-desktop-1200.avif 1200w">
+          <source media="(min-width: 1024px)" type="image/webp" sizes="(min-width: 1264px) 486px, 40vw"
+                  srcset="assets/img/presencial-predio-desktop-480.webp 480w, assets/img/presencial-predio-desktop-720.webp 720w, assets/img/presencial-predio-desktop-960.webp 960w, assets/img/presencial-predio-desktop-1200.webp 1200w">
+          <source media="(min-width: 1024px)" type="image/jpeg" sizes="(min-width: 1264px) 486px, 40vw"
+                  srcset="assets/img/presencial-predio-desktop-480.jpg 480w, assets/img/presencial-predio-desktop-720.jpg 720w, assets/img/presencial-predio-desktop-960.jpg 960w, assets/img/presencial-predio-desktop-1200.jpg 1200w">
+          <source type="image/avif" sizes="calc(100vw - 32px)"
+                  srcset="assets/img/presencial-predio-mobile-480.avif 480w, assets/img/presencial-predio-mobile-720.avif 720w, assets/img/presencial-predio-mobile-960.avif 960w">
+          <source type="image/webp" sizes="calc(100vw - 32px)"
+                  srcset="assets/img/presencial-predio-mobile-480.webp 480w, assets/img/presencial-predio-mobile-720.webp 720w, assets/img/presencial-predio-mobile-960.webp 960w">
+          <img src="assets/img/presencial-predio-mobile-720.jpg"
+               srcset="assets/img/presencial-predio-mobile-480.jpg 480w, assets/img/presencial-predio-mobile-720.jpg 720w, assets/img/presencial-predio-mobile-960.jpg 960w"
+               sizes="calc(100vw - 32px)" width="720" height="540" loading="lazy" decoding="async"
+               alt="Prédio da FEA-USP, na Cidade Universitária, com a escultura vermelha e branca em frente">
+        </picture>
+
+        <div class="formato__texto">
+          <p class="eyebrow">Formato</p>
+          <h2 id="formato-titulo">Online à noite. Presencial na&nbsp;<span class="destaque">FEA</span>.</h2>
+          <p class="lead">Modelo híbrido (36% presencial / 64% online) pensado para conciliar a rotina profissional com encontros presenciais na&nbsp;FEA&#8209;USP.</p>
+          <ul class="formato__blocos">
+            <li class="formato__bloco">
+              <svg class="icone" aria-hidden="true"><use href="#i-online"/></svg>
+              <div>
+                <h3>Aulas online ao vivo, à noite</h3>
+                <p>Aulas ao vivo em noites de semana, com interação em tempo real e flexibilidade para quem&nbsp;trabalha.</p>
+              </div>
+            </li>
+            <li class="formato__bloco">
+              <svg class="icone" aria-hidden="true"><use href="#i-local"/></svg>
+              <div>
+                <h3>Encontros presenciais na FEA</h3>
+                <p>Ao menos uma vez por mês na Cidade Universitária (São Paulo), favorecendo a troca presencial e a rede na&nbsp;FEA.</p>
+              </div>
+            </li>
+            <li class="formato__bloco">
+              <svg class="icone" aria-hidden="true"><use href="#i-relogio"/></svg>
+              <div>
+                <h3>Duração e carga horária</h3>
+                <p>400 horas por curso (360h de aula + 40h de TCC), com duração sugerida de 18 meses e turmas de 40&nbsp;alunos.</p>
+              </div>
+            </li>
+            <li class="formato__bloco">
+              <svg class="icone" aria-hidden="true"><use href="#i-inscricao"/></svg>
+              <div>
+                <h3>Processo seletivo e inscrição simples</h3>
+                <p>Inscrição online objetiva e processo de matrícula direto na página oficial da Educação Executiva&nbsp;FEA&#8209;USP.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Aula aberta gratuita: banner + inscrição logo abaixo -->
+    <section class="secao fundo-suave" id="aula-aberta" aria-labelledby="aula-titulo">
+      <div class="container">
+        <div class="banner tema-escuro">
+          <svg class="banner__ornamento" viewBox="0 0 720 720" aria-hidden="true" focusable="false">
+            <circle cx="360" cy="360" r="140"/><circle cx="360" cy="360" r="220"/><circle cx="360" cy="360" r="300"/><circle cx="360" cy="360" r="359"/>
+          </svg>
+
+          <div class="banner__texto">
+            <ul class="banner__selos" aria-label="Destaques">
+              <li><span class="banner__ponto" aria-hidden="true"></span>Aula aberta e gratuita</li>
+              <li><svg class="icone" aria-hidden="true"><use href="#i-online"/></svg>Online ao vivo</li>
+            </ul>
+            <h2 id="aula-titulo"><span class="visualmente-oculto">Aula aberta e gratuita: </span>Mais prática. <span class="destaque">Mais&nbsp;FEA.</span></h2>
+            <p class="banner__sub">Três módulos referentes aos MBAs, com professores da FEA e projeto real com&nbsp;empresa.</p>
+            <ul class="banner__modulos" aria-label="Módulos da aula aberta">
+              <li>Gestão Estratégica e Liderança</li>
+              <li>Dados e IA Aplicados aos Negócios</li>
+              <li>Finanças Corporativas e Geração de Valor</li>
+            </ul>
+            <div class="banner__rodape">
+              <picture>
+                <source type="image/webp" srcset="assets/img/logo/logo-mba-fea-usp-branca-64.webp 1x, assets/img/logo/logo-mba-fea-usp-branca-128.webp 2x">
+                <img class="banner__logo" src="assets/img/logo/logo-mba-fea-usp-branca-64.png" srcset="assets/img/logo/logo-mba-fea-usp-branca-128.png 2x" width="54" height="64" alt="MBA FEA-USP">
+              </picture>
+              <ul class="banner__quando" aria-label="Data e horário">
+                <li><svg class="icone" aria-hidden="true"><use href="#i-calendario"/></svg>10 de março de 2027</li>
+                <li><svg class="icone" aria-hidden="true"><use href="#i-relogio"/></svg>19h30</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="banner__profs">
+            <figure class="prof prof--azul">
+              <picture>
+                <source type="image/avif" sizes="(min-width: 1024px) 220px, 45vw" srcset="assets/img/prof-andres-retrato-320.avif 320w, assets/img/prof-andres-retrato-480.avif 480w, assets/img/prof-andres-retrato-600.avif 600w">
+                <source type="image/webp" sizes="(min-width: 1024px) 220px, 45vw" srcset="assets/img/prof-andres-retrato-320.webp 320w, assets/img/prof-andres-retrato-480.webp 480w, assets/img/prof-andres-retrato-600.webp 600w">
+                <img src="assets/img/prof-andres-retrato-480.jpg" srcset="assets/img/prof-andres-retrato-320.jpg 320w, assets/img/prof-andres-retrato-480.jpg 480w, assets/img/prof-andres-retrato-600.jpg 600w" sizes="(min-width: 1024px) 220px, 45vw" width="480" height="704" loading="lazy" decoding="async" alt="Retrato do professor Andres Rodriguez Veloso">
+              </picture>
+              <figcaption>
+                <strong>Andres Rodriguez Veloso</strong>
+                <span>Professor titular e chefe do Departamento de Administração da FEA&#8209;USP</span>
+              </figcaption>
+            </figure>
+            <figure class="prof">
+              <picture>
+                <source type="image/avif" sizes="(min-width: 1024px) 220px, 45vw" srcset="assets/img/prof-sofia-retrato-320.avif 320w, assets/img/prof-sofia-retrato-480.avif 480w, assets/img/prof-sofia-retrato-640.avif 640w">
+                <source type="image/webp" sizes="(min-width: 1024px) 220px, 45vw" srcset="assets/img/prof-sofia-retrato-320.webp 320w, assets/img/prof-sofia-retrato-480.webp 480w, assets/img/prof-sofia-retrato-640.webp 640w">
+                <img src="assets/img/prof-sofia-retrato-480.jpg" srcset="assets/img/prof-sofia-retrato-320.jpg 320w, assets/img/prof-sofia-retrato-480.jpg 480w, assets/img/prof-sofia-retrato-640.jpg 640w" sizes="(min-width: 1024px) 220px, 45vw" width="480" height="704" loading="lazy" decoding="async" alt="Retrato da professora Sofia Batista Ferraz">
+              </picture>
+              <figcaption>
+                <strong>Sofia Batista Ferraz</strong>
+                <span>Professora doutora de Marketing na FEA&#8209;USP e pesquisadora da FIA</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="inscricao">
+          <div class="inscricao__intro">
+            <h3>Garanta sua vaga</h3>
+            <p>Leva menos de um minuto. Campos com * são obrigatórios.</p>
+            <ul class="inscricao__fatos">
+              <li><svg class="icone" aria-hidden="true"><use href="#i-calendario"/></svg><span>10 de março de 2027, às 19h30</span></li>
+              <li><svg class="icone" aria-hidden="true"><use href="#i-online"/></svg><span>Transmissão online ao vivo (com encontros e atividades ligados à&nbsp;FEA&#8209;USP)</span></li>
+            </ul>
+            <p class="aula__nota"><strong>Ainda está na graduação?</strong> A aula aberta é gratuita e aberta para você conhecer a FEA&#8209;USP e os temas dos cursos antes da&nbsp;formatura.</p>
+          </div>
+        <form class="form" id="form-aula" action="#" method="post" novalidate data-pendente="destino-formulario">
+          <div class="campo">
+            <label for="aula-nome">Nome completo *</label>
+            <input id="aula-nome" name="nome" type="text" autocomplete="name" required aria-describedby="aula-nome-erro">
+            <p class="campo__erro" id="aula-nome-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="aula-email">E-mail *</label>
+            <input id="aula-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="aula-email-erro">
+            <p class="campo__erro" id="aula-email-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="aula-whatsapp">WhatsApp *</label>
+            <input id="aula-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="aula-whatsapp-ajuda aula-whatsapp-erro">
+            <p class="campo__ajuda" id="aula-whatsapp-ajuda">Com DDD, por exemplo (11) 91234-5678.</p>
+            <p class="campo__erro" id="aula-whatsapp-erro"></p>
+          </div>
+          <div class="campo">
+            <label for="aula-interesse">MBA de interesse *</label>
+            <select id="aula-interesse" name="interesse" required aria-describedby="aula-interesse-erro">
+              <option value="">Selecione</option>
+              <option>Gestão Estratégica e Liderança</option>
+              <option>Dados e IA Aplicados aos Negócios</option>
+              <option>Finanças Corporativas e Geração de Valor</option>
+              <option>Ainda não sei</option>
+            </select>
+            <p class="campo__erro" id="aula-interesse-erro"></p>
+          </div>
+          <div class="consentimento">
+            <input id="aula-consentimento" name="consentimento" type="checkbox" required aria-describedby="aula-consentimento-erro">
+            <label for="aula-consentimento">Autorizo o uso dos meus dados para receber informações sobre a aula aberta e os MBAs, conforme a <a href="privacidade.html">Política de Privacidade</a>. *</label>
+            <p class="campo__erro" id="aula-consentimento-erro"></p>
+          </div>
+          <button class="btn btn--principal" type="submit">
+            Quero participar
+            <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+          </button>
+          <p class="form__status" role="status" aria-live="polite"></p>
+        </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Depoimentos: fora da v1 (D10). Só entram com falas, fotos e autorizações reais. -->
+
+    <!-- 11. Certificado, descontos e isenção -->
+    <section class="secao" id="condicoes" aria-labelledby="condicoes-titulo">
+      <div class="container">
+        <div class="secao__cabeca">
+          <p class="eyebrow">Certificado e investimento</p>
+          <h2 id="condicoes-titulo">O que você leva e como&nbsp;<span class="destaque">investir</span>.</h2>
+        </div>
+
+        <div class="condicoes__grade">
+          <div class="certificado tema-escuro">
+            <svg class="icone certificado__selo" viewBox="0 0 72 72" aria-hidden="true"><use href="#i-certificado"/></svg>
+            <h3>Certificado de especialização da&nbsp;USP</h3>
+            <p>Ao concluir as 400&nbsp;horas (360h de aula + 40h de TCC) e cumprir os requisitos acadêmicos e de frequência da USP, você recebe o certificado de especialização emitido pela Universidade de São&nbsp;Paulo.</p>
+          </div>
+
+          <div class="investimento">
+            <h3>Investimento e condições</h3>
+            <p class="investimento__preco">
+              <span>Valor total:</span>
+              <strong class="investimento__valor">R$&nbsp;14.400,00</strong>
+              <span class="investimento__parcela">em <strong>24x de R$&nbsp;600,00</strong></span>
+            </p>
+            <ul class="investimento__lista">
+              <li>
+                <svg class="icone" aria-hidden="true"><use href="#i-desconto"/></svg>
+                <div>
+                  <strong>Desconto de 10% (R$&nbsp;12.960 ou 24x de R$&nbsp;540)</strong>
+                  Condição segmentada para ex&#8209;alunos da USP, inscrições antecipadas e empresas conveniadas.
+                </div>
+              </li>
+              <li>
+                <svg class="icone" aria-hidden="true"><use href="#i-desconto"/></svg>
+                <div>
+                  <strong>Desconto de 25% (R$&nbsp;10.800 ou 24x de R$&nbsp;450)</strong>
+                  Condição segmentada para público elegível (setor público, terceiro setor e turmas/grupos corporativos).
+                </div>
+              </li>
+              <li>
+                <svg class="icone" aria-hidden="true"><use href="#i-isencao"/></svg>
+                <div>
+                  <strong>Isenção integral em 10% das vagas</strong>
+                  Ao menos 10% das vagas preenchidas (4 vagas em turma de 40 alunos) com isenção integral, conforme as regras da USP.
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn--contorno-escuro" href="#contato">Fale com a equipe</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. FAQ + contato -->
+    <section class="secao fundo-suave" id="faq" aria-labelledby="faq-titulo">
+      <div class="container faq__grade">
+        <div class="faq__perguntas">
+          <div class="secao__cabeca">
+            <p class="eyebrow">Dúvidas</p>
+            <h2 id="faq-titulo">Perguntas frequentes</h2>
+          </div>
+          <div class="faq__lista">
+            <details class="expansivel faq__item">
+              <summary>O certificado é da USP?<svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+              <div class="faq__resposta"><p>Sim. Os MBAs são cursos de especialização oferecidos pela FEA como extensão universitária da USP, e o certificado é da Universidade de São&nbsp;Paulo.</p></div>
+            </details>
+            <details class="expansivel faq__item">
+              <summary>Quem pode se inscrever?<svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+              <div class="faq__resposta"><p>Profissionais que já concluíram a graduação, em qualquer área. Quem ainda está na graduação pode acompanhar a aula aberta gratuita para conhecer a proposta antes de se&nbsp;formar.</p></div>
+            </details>
+            <details class="expansivel faq__item">
+              <summary>Como funcionam as aulas?<svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+              <div class="faq__resposta"><p>O curso tem formato híbrido (36% presencial / 64% online), com aulas online ao vivo em noites de semana e encontros presenciais na FEA&#8209;USP ao menos uma vez por&nbsp;mês.</p></div>
+            </details>
+            <details class="expansivel faq__item">
+              <summary>Qual é a carga horária e a duração?<svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+              <div class="faq__resposta"><p>São 400 horas por curso (360h de aula + 40h de TCC), com duração sugerida de 18 meses e turmas de 40&nbsp;alunos.</p></div>
+            </details>
+            <details class="expansivel faq__item">
+              <summary>Quanto custa? Há descontos?<svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+              <div class="faq__resposta"><p>O valor total é de R$&nbsp;14.400,00 (em 24x de R$&nbsp;600,00). Há descontos de 10% (24x de R$&nbsp;540) e de 25% (24x de R$&nbsp;450) para públicos elegíveis (ex&#8209;alunos USP, convênios, inscrições antecipadas e condições especiais).</p></div>
+            </details>
+            <details class="expansivel faq__item">
+              <summary>Como funciona a isenção de 10% das vagas?<svg class="icone" aria-hidden="true"><use href="#i-mais"/></svg></summary>
+              <div class="faq__resposta"><p>Pelas regras da USP, ao menos 10% das vagas preenchidas (4 vagas em uma turma de 40 alunos) contam com isenção integral, conforme critérios institucionais e normas da CoCEx/USP.</p></div>
+            </details>
+          </div>
+        </div>
+
+        <div class="contato tema-escuro" id="contato">
+          <h2 id="contato-titulo">Quer mais informações?</h2>
+          <p>Deixe seus dados e a equipe do MBA entra em contato.</p>
+          <form class="form form--escuro" id="form-contato" action="#" method="post" novalidate data-pendente="destino-formulario" aria-labelledby="contato-titulo">
+            <div class="campo">
+              <label for="contato-nome">Nome completo *</label>
+              <input id="contato-nome" name="nome" type="text" autocomplete="name" required aria-describedby="contato-nome-erro">
+              <p class="campo__erro" id="contato-nome-erro"></p>
+            </div>
+            <div class="campo">
+              <label for="contato-email">E-mail *</label>
+              <input id="contato-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="contato-email-erro">
+              <p class="campo__erro" id="contato-email-erro"></p>
+            </div>
+            <div class="campo">
+              <label for="contato-whatsapp">WhatsApp</label>
+              <input id="contato-whatsapp" name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="contato-whatsapp-ajuda contato-whatsapp-erro">
+              <p class="campo__ajuda" id="contato-whatsapp-ajuda">Opcional. Com DDD.</p>
+              <p class="campo__erro" id="contato-whatsapp-erro"></p>
+            </div>
+            <div class="campo">
+              <label for="contato-mensagem">Mensagem *</label>
+              <textarea id="contato-mensagem" name="mensagem" required aria-describedby="contato-mensagem-erro"></textarea>
+              <p class="campo__erro" id="contato-mensagem-erro"></p>
+            </div>
+            <div class="consentimento">
+              <input id="contato-consentimento" name="consentimento" type="checkbox" required aria-describedby="contato-consentimento-erro">
+              <label for="contato-consentimento">Autorizo o uso dos meus dados para receber o retorno sobre os MBAs, conforme a <a href="privacidade.html">Política de Privacidade</a>. *</label>
+              <p class="campo__erro" id="contato-consentimento-erro"></p>
+            </div>
+            <button class="btn btn--principal" type="submit">
+              Enviar mensagem
+              <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+            </button>
+            <p class="form__status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Faixa final de CTA -->
+    <section class="cta-final" aria-labelledby="cta-titulo">
+      <picture class="cta-final__midia">
+        <source media="(min-width: 768px)" type="image/avif" sizes="100vw"
+                srcset="assets/img/cta-fachada-desktop-960.avif 960w, assets/img/cta-fachada-desktop-1440.avif 1440w, assets/img/cta-fachada-desktop-1920.avif 1920w, assets/img/cta-fachada-desktop-2560.avif 2560w">
+        <source media="(min-width: 768px)" type="image/webp" sizes="100vw"
+                srcset="assets/img/cta-fachada-desktop-960.webp 960w, assets/img/cta-fachada-desktop-1440.webp 1440w, assets/img/cta-fachada-desktop-1920.webp 1920w, assets/img/cta-fachada-desktop-2560.webp 2560w">
+        <source media="(min-width: 768px)" type="image/jpeg" sizes="100vw"
+                srcset="assets/img/cta-fachada-desktop-960.jpg 960w, assets/img/cta-fachada-desktop-1440.jpg 1440w, assets/img/cta-fachada-desktop-1920.jpg 1920w, assets/img/cta-fachada-desktop-2560.jpg 2560w">
+        <source type="image/avif" sizes="100vw"
+                srcset="assets/img/cta-fachada-mobile-480.avif 480w, assets/img/cta-fachada-mobile-720.avif 720w, assets/img/cta-fachada-mobile-960.avif 960w">
+        <source type="image/webp" sizes="100vw"
+                srcset="assets/img/cta-fachada-mobile-480.webp 480w, assets/img/cta-fachada-mobile-720.webp 720w, assets/img/cta-fachada-mobile-960.webp 960w">
+        <img src="assets/img/cta-fachada-mobile-720.jpg"
+             srcset="assets/img/cta-fachada-mobile-480.jpg 480w, assets/img/cta-fachada-mobile-720.jpg 720w, assets/img/cta-fachada-mobile-960.jpg 960w"
+             sizes="100vw" width="720" height="960" loading="lazy" decoding="async" alt="">
+      </picture>
+      <div class="container">
+        <h2 id="cta-titulo">Comece pela aula aberta. É&nbsp;gratuita.</h2>
+        <p class="lead">Conheça o método, os professores e o formato antes de escolher o seu&nbsp;MBA.</p>
+        <div class="cta-final__acoes">
+          <a class="btn btn--principal" href="#aula-aberta">
+            Quero a aula aberta
+            <svg class="icone" aria-hidden="true"><use href="#i-seta"/></svg>
+          </a>
+          <a class="btn btn--contorno-claro" href="#contato">Fale com a equipe</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape__grade">
+        <div>
+          <a class="marca marca--logo" href="#topo" aria-label="MBA FEA-USP, Educação Executiva, início da página">
+            <picture>
+              <source type="image/webp" srcset="assets/img/logo/logo-mba-fea-usp-branca-128.webp 1x, assets/img/logo/logo-mba-fea-usp-branca-192.webp 2x">
+              <img class="marca__logo marca__logo--rodape" src="assets/img/logo/logo-mba-fea-usp-branca-128.png" srcset="assets/img/logo/logo-mba-fea-usp-branca-192.png 2x" width="68" height="80" alt="">
+            </picture>
+            <span class="marca__sub">Educação<br>Executiva</span>
+          </a>
+          <p class="rodape__sobre">Cursos de especialização oferecidos pela FEA como extensão universitária da&nbsp;USP.</p>
+        </div>
+        <nav aria-labelledby="rodape-nav">
+          <h2 id="rodape-nav">Navegação</h2>
+          <ul>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#formato">Formato</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#aula-aberta">Aula aberta</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Contato</h2>
+          <ul>
+            <li>WhatsApp: (11)&nbsp;98765-4321</li>
+            <li class="quebra-livre">mba.executiva@feausp-simulado.usp.br</li>
+            <li>Av. Prof. Luciano Gualberto, 908 — Cidade Universitária, Butantã, <span class="sem-quebra">São Paulo - SP</span></li>
+            <li><a href="#contato">Formulário de contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Institucional</h2>
+          <ul>
+            <li><a href="privacidade.html">Política de Privacidade</a></li>
+            <li><a href="https://www.fea.usp.br" rel="noopener">Site da FEA-USP</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="rodape__legal">© 2026 MBA FEA&#8209;USP, Educação Executiva. Extensão universitária da&nbsp;USP.</p>
+    </div>
+  </footer>
+</body>
+</html>
