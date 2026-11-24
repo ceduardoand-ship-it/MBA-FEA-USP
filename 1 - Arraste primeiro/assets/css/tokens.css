@@ -1,0 +1,92 @@
+/* Tokens do design — fonte da verdade: specs/design.md e specs/plano-site.md (seções 3, 4 e 6). */
+
+:root {
+  /* Paleta da marca */
+  --navy: #133271;
+  --blue: #2B63A9;
+  --slate: #325580;
+  --gold: #C6A76A;
+  --gold-claro: #D4BA86;   /* hover do botão principal: mais claro mantém o contraste com o navy */
+  --mist: #A7B2CB;
+
+  /* Neutros de apoio */
+  --tinta: #1F2A44;        /* texto corrido sobre claro (14,26:1) */
+  --branco: #FFFFFF;
+  --fundo-suave: #F3F5F9;
+  --linha: #E2E6EF;
+  --borda-campo: #C9D0DE;
+
+  /* Estado de erro de formulário (funcional, fora da paleta de marca) */
+  --erro: #B42318;          /* sobre branco: 6,5:1 */
+  --erro-sobre-navy: #FFB4AB; /* sobre navy: ~9:1 */
+
+  /* Overlay navy sobre fotos: mínimo 75% sob texto (D4) */
+  --overlay-forte: rgb(19 50 113 / 0.88);
+  --overlay-texto: rgb(19 50 113 / 0.78);
+  --overlay-leve: rgb(19 50 113 / 0.55);
+
+  /* Famílias */
+  --fonte-titulo: "Inter Tight", "Inter Tight Fallback", Arial, sans-serif;
+  --fonte-texto: "Inter", "Inter Fallback", Arial, sans-serif;
+
+  /* Escala fluida (valores efetivos em plano-site.md, 4.2) */
+  --fs-h1: clamp(2.25rem, 1.5rem + 3.2vw, 4rem);
+  --fs-h2: clamp(1.75rem, 1.2rem + 2vw, 2.75rem);
+  --fs-h3: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
+  --fs-h4: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --fs-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --fs-corpo: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --fs-numero: clamp(2.5rem, 1.6rem + 3.5vw, 4.5rem);
+  --fs-eyebrow: 0.8125rem;
+  --fs-pequeno: 0.875rem;
+  --fs-menu: 0.9375rem;
+
+  /* Espaçamento (base 4 px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 88px;
+  --space-10: 112px;
+
+  /* Movimento: curva de saída forte para respostas de interface (sempre < 300 ms) */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-rapida: 160ms;
+  --dur-media: 220ms;
+
+  /* Formas */
+  --raio-sm: 6px;
+  --raio-md: 12px;
+  --raio-total: 999px;
+  --sombra-sm: 0 1px 2px rgb(19 50 113 / 0.08);
+  --sombra-md: 0 12px 32px rgb(19 50 113 / 0.12);
+
+  /* Layout (mobile) */
+  --container: 1200px;
+  --margem: 16px;
+  --gutter: 16px;
+  --secao-y: var(--space-8);
+  --header-h: 64px;
+  --sobreposicao: 48px;    /* quanto o card de resumo sobe sobre o hero */
+}
+
+@media (min-width: 768px) {
+  :root {
+    --margem: 24px;
+    --gutter: 24px;
+    --secao-y: var(--space-9);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --margem: 32px;
+    --secao-y: var(--space-10);
+    --header-h: 80px;
+    --sobreposicao: 96px;
+  }
+}

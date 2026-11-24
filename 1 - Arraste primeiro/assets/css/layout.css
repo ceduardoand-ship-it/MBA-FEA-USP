@@ -1,0 +1,59 @@
+/* Container, grid e seções. Medidas: specs/plano-site.md, seção 3. */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--margem));
+  margin-inline: auto;
+  padding-inline: var(--margem);
+}
+
+.secao {
+  padding-block: var(--secao-y);
+}
+
+.tema-escuro {
+  background: var(--navy);
+  color: var(--branco);
+}
+
+.fundo-suave {
+  background: var(--fundo-suave);
+}
+
+/* Grid: 4 colunas (mobile), 8 (tablet), 12 (desktop) */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* Cabeçalho de seção: eyebrow → título → apoio → conteúdo */
+.secao__cabeca {
+  margin-bottom: var(--space-6);
+}
+
+.secao__cabeca > h2 + p {
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 1024px) {
+  .secao__cabeca {
+    margin-bottom: var(--space-7);
+  }
+
+  .secao__cabeca > h2 + p {
+    margin-top: var(--space-5);
+  }
+}

@@ -1,0 +1,682 @@
+/* Componentes. Especificação: specs/plano-site.md, seções 3.3 e 9. */
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 0 var(--space-5);
+  border: 1.5px solid transparent;
+  border-radius: var(--raio-sm);
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--dur-rapida) ease,
+    color var(--dur-rapida) ease,
+    border-color var(--dur-rapida) ease,
+    transform var(--dur-rapida) var(--ease-out);
+}
+
+/* Resposta ao toque/clique: o botão "afunda" de leve */
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Rótulo em uma linha a partir de 360 px; abaixo disso pode quebrar e o botão cresce (plano 5.2) */
+@media (min-width: 360px) {
+  .btn {
+    white-space: nowrap;
+  }
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+/* A seta ↗ avança um pouco no hover (como o "hover:gap" do componente de referência) */
+a.btn > svg,
+button.btn > svg {
+  transition: transform var(--dur-media) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.btn:hover > svg,
+  button.btn:hover > svg {
+    transform: translate(2px, -2px);
+  }
+}
+
+.btn--principal {
+  background: var(--gold);
+  color: var(--navy);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--principal:hover {
+    background: var(--gold-claro);
+  }
+}
+
+.btn--contorno-claro {
+  border-color: var(--branco);
+  color: var(--branco);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--contorno-claro:hover {
+    background: rgb(255 255 255 / 0.1);
+  }
+}
+
+.btn--contorno-escuro {
+  border-color: var(--navy);
+  color: var(--navy);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--contorno-escuro:hover {
+    background: rgb(19 50 113 / 0.06);
+  }
+}
+
+.btn--compacto {
+  min-height: 44px;
+  padding: 0 var(--space-4);
+}
+
+/* ---------- Chips / selos ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 var(--space-3);
+  border-radius: var(--raio-total);
+  background: var(--fundo-suave);
+  color: var(--navy);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ---------- Ícones ---------- */
+.icone {
+  width: 24px;
+  height: 24px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- Barra superior (só desktop) ---------- */
+.topbar {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .topbar {
+    display: block;
+    background: var(--navy);
+    color: var(--mist);
+    font-size: 0.8125rem;
+  }
+
+  .topbar__lista {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--space-5);
+    min-height: 36px;
+    list-style: none;
+  }
+
+  .topbar__lista li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .topbar .icone {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--branco);
+  transition: box-shadow 0.2s ease;
+}
+
+.cabecalho.rolou {
+  box-shadow: var(--sombra-sm);
+}
+
+.cabecalho__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  min-height: var(--header-h);
+}
+
+/* Marca em texto até haver nome final e logo autorizado (D5) */
+.marca {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--navy);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.marca__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.marca__nome span {
+  color: var(--blue);
+}
+
+.marca__sub {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+  .marca__nome {
+    font-size: 1.5rem;
+  }
+}
+
+/* Marca com a logo oficial "Logo MBA FEA USP USAR" (fundo transparente; versão branca no rodapé) */
+.marca--logo {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.marca--logo picture {
+  display: contents;
+}
+
+.marca__logo {
+  width: auto;
+  height: 50px;
+  flex: none;
+}
+
+.marca--logo .marca__sub {
+  padding-left: var(--space-3);
+  border-left: 1px solid var(--linha);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  white-space: normal;
+}
+
+@media (min-width: 1024px) {
+  .marca__logo {
+    height: 66px;
+  }
+
+  .marca--logo .marca__sub {
+    font-size: 0.8125rem;
+  }
+}
+
+.cabecalho__acoes {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Menu: sem JS, aparece como lista visível que quebra linha */
+.menu {
+  flex-basis: 100%;
+  order: 3;
+}
+
+.menu__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  padding-bottom: var(--space-3);
+  list-style: none;
+}
+
+.menu__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--tinta);
+  font-family: var(--fonte-titulo);
+  font-size: var(--fs-menu);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.menu__link:hover {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+
+.menu__topo,
+.botao-menu {
+  display: none;
+}
+
+/* Com JS, abaixo de 1024 px: menu vira painel em tela cheia */
+@media (max-width: 1023.98px) {
+  .js .botao-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: var(--raio-sm);
+    background: none;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .js .menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: none;
+    flex-direction: column;
+    background: var(--branco);
+    padding: 0 var(--margem) var(--space-6);
+    overflow-y: auto;
+  }
+
+  .js .menu.aberto {
+    display: flex;
+    animation: menu-entrar var(--dur-media) var(--ease-out);
+  }
+
+  @keyframes menu-entrar {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .menu.aberto {
+      animation: none;
+    }
+  }
+
+  .js .menu__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--header-h);
+    margin-bottom: var(--space-4);
+  }
+
+  .js .menu__lista {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .js .menu__lista li + li {
+    border-top: 1px solid var(--linha);
+  }
+
+  .js .menu__link {
+    width: 100%;
+    min-height: 56px;
+    font-size: 1.125rem;
+  }
+
+  .js .menu__cta {
+    margin-top: var(--space-6);
+  }
+
+  .js .menu__cta .btn {
+    width: 100%;
+  }
+}
+
+/* Desktop: menu em linha, entre a marca e o botão */
+@media (min-width: 1024px) {
+  .cabecalho__barra {
+    flex-wrap: nowrap;
+    gap: var(--space-6);
+  }
+
+  .menu {
+    flex-basis: auto;
+    order: 0;
+    margin-left: auto;
+  }
+
+  .menu__lista {
+    flex-wrap: nowrap;
+    gap: var(--space-6);
+    padding-bottom: 0;
+  }
+
+  .menu__cta {
+    display: none;
+  }
+}
+
+/* Menu sem JS no mobile: botão do cabeçalho fica, o do menu some */
+.menu__cta {
+  display: none;
+}
+
+.js .menu__cta {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .js .menu__cta {
+    display: none;
+  }
+}
+
+/* Com JS o menu sai do fluxo (painel fixo): marca e ações ficam sempre na mesma linha */
+.js .cabecalho__barra {
+  flex-wrap: nowrap;
+  gap: var(--space-3);
+}
+
+/* Botão do cabeçalho: compacto no mobile */
+.cabecalho__cta {
+  min-height: 40px;
+  padding: 0 var(--space-3);
+}
+
+@media (max-width: 399.98px) {
+  .cabecalho__cta svg {
+    display: none;   /* cabe ao lado da marca em 320–399 px */
+  }
+}
+
+@media (min-width: 400px) {
+  .cabecalho__cta {
+    padding: 0 var(--space-4);
+  }
+}
+
+/* ---------- "Saiba mais" com <details> (funciona sem JS) ---------- */
+.expansivel > summary {
+  list-style: none;
+}
+
+.expansivel > summary::-webkit-details-marker {
+  display: none;
+}
+
+.expansivel > summary .icone {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--dur-media) var(--ease-out);
+}
+
+/* Conteúdo que abre: aparece com um leve deslizar (não aparece "do nada") */
+.expansivel[open] > :not(summary) {
+  animation: revelar var(--dur-media) var(--ease-out);
+}
+
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .expansivel[open] > :not(summary) {
+    animation: none;
+  }
+}
+
+.expansivel[open] > summary .icone {
+  transform: rotate(45deg);
+}
+
+.expansivel .quando-aberto,
+.expansivel[open] .quando-fechado {
+  display: none;
+}
+
+.expansivel[open] .quando-aberto {
+  display: inline;
+}
+
+/* ---------- Formulários ---------- */
+.form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.campo {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.campo label {
+  font-size: var(--fs-pequeno);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--borda-campo);
+  border-radius: var(--raio-sm);
+  background: var(--branco);
+  color: var(--tinta);
+  font: inherit;
+  font-size: 1rem;     /* 16 px evita zoom automático no iPhone */
+  line-height: 1.4;
+  transition: border-color var(--dur-rapida) ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .campo input:hover,
+  .campo select:hover,
+  .campo textarea:hover {
+    border-color: var(--slate);
+  }
+}
+
+.campo select {
+  cursor: pointer;
+}
+
+.campo textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.campo select {
+  appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23133271' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+}
+
+.campo input:focus-visible,
+.campo select:focus-visible,
+.campo textarea:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 1px;
+  border-color: var(--blue);
+}
+
+.campo [aria-invalid="true"] {
+  border-color: var(--erro);
+  border-width: 2px;
+}
+
+.campo__ajuda {
+  font-size: var(--fs-pequeno);
+  color: var(--slate);
+}
+
+.campo__erro {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  font-size: var(--fs-pequeno);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--erro);
+}
+
+.campo__erro:empty {
+  display: none;
+}
+
+.campo__erro::before {
+  content: "!";
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: currentColor;
+  color: var(--branco);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.consentimento {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: var(--space-3);
+  align-items: start;
+  font-size: var(--fs-pequeno);
+  line-height: 1.5;
+}
+
+.consentimento input {
+  width: 20px;
+  height: 20px;
+  margin: 1px 0 0;
+  accent-color: var(--navy);
+}
+
+.consentimento .campo__erro {
+  grid-column: 2;
+}
+
+.form__status {
+  font-size: var(--fs-pequeno);
+  line-height: 1.5;
+}
+
+.form__status:empty {
+  display: none;
+}
+
+.form__status {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--gold);
+  border-radius: var(--raio-sm);
+  background: rgb(198 167 106 / 0.14);
+  color: var(--tinta);
+}
+
+.form--escuro .form__status {
+  color: var(--branco);
+}
+
+.form .btn {
+  justify-self: start;
+}
+
+@media (max-width: 479.98px) {
+  .form .btn {
+    justify-self: stretch;
+  }
+}
+
+/* Formulário direto sobre fundo navy (o da aula aberta fica num card branco e não usa isto) */
+.form--escuro .campo label,
+.form--escuro .consentimento {
+  color: var(--branco);
+}
+
+.form--escuro .campo__ajuda {
+  color: var(--mist);
+}
+
+.form--escuro .campo__erro {
+  color: var(--erro-sobre-navy);
+}
+
+.form--escuro .campo__erro::before {
+  color: var(--navy);
+}
+
+.form--escuro .campo [aria-invalid="true"] {
+  border-color: var(--erro-sobre-navy);
+}
+
+.form--escuro .consentimento a {
+  color: var(--branco);
+}
+
+.form--escuro .consentimento input {
+  accent-color: var(--gold);
+}
+
+/* Bloco claro dentro de seção escura: volta às cores de fundo claro */
+.tema-claro {
+  background: var(--branco);
+  color: var(--tinta);
+}
+
+.tema-escuro .tema-claro :focus-visible {
+  outline-color: var(--blue);
+}
+
+.tema-escuro .tema-claro .eyebrow {
+  color: var(--slate);
+}
+
+@media (min-width: 1024px) {
+  .cabecalho__cta {
+    min-height: 44px;
+  }
+}
