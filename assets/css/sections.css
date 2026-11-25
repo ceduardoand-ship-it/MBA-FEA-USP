@@ -324,8 +324,129 @@
   color: var(--branco);
 }
 
+/* Empresas parceiras dentro do card do curso: placas brancas do mesmo tamanho */
+.curso__parceiros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.curso__parceiros > p {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--mist);
+}
+
+.curso__parceiros ul {
+  display: flex;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.curso__parceiros .parceiro {
+  width: 108px;
+  height: 40px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: var(--raio-sm);
+}
+
+.curso__parceiros .parceiro img {
+  max-height: 22px;
+}
+
+.curso__parceiros .parceiro--quadrado img {
+  max-height: 30px;
+}
+
 .curso__detalhes {
   margin-top: var(--space-5);
+}
+
+/* Placa de logo: tamanho fixo, logo centrada e contida (horizontais e o quadrado do Itaú) */
+.parceiro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-md);
+  background: var(--branco);
+}
+
+.parceiro picture {
+  display: contents;
+}
+
+.parceiro img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 38px;
+  object-fit: contain;
+}
+
+.parceiro--quadrado img {
+  max-height: 52px;
+}
+
+/* Bloco "Empresas parceiras" no fim da seção dos cursos */
+.parceiros {
+  margin-top: var(--space-8);
+}
+
+.parceiros__titulo {
+  color: var(--navy);
+}
+
+.parceiros__texto {
+  margin-top: var(--space-2);
+  color: var(--tinta);
+}
+
+.parceiros__grade {
+  display: grid;
+  gap: var(--gutter);
+  margin-top: var(--space-6);
+  list-style: none;
+}
+
+/* Logos têm fundo branco no arquivo: as placas ficam brancas sobre um cartão azul-claro,
+   assim não aparece "caixa branca dentro de caixa cinza" */
+.parceiros__curso {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--raio-md);
+  background: rgb(43 99 169 / 0.07);
+}
+
+.parceiros__curso .eyebrow {
+  margin: 0;
+}
+
+.parceiros__curso h4 {
+  color: var(--navy);
+  max-width: 24ch;
+}
+
+.parceiros__logos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .parceiros__grade {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .curso__painel {
@@ -650,6 +771,24 @@
   max-width: 34ch;
 }
 
+/* Linha discreta: apresentação das empresas parceiras na aula aberta */
+.banner__extra {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  font-size: var(--fs-pequeno);
+  line-height: 1.4;
+  color: var(--mist);
+}
+
+.banner__extra .icone {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  color: var(--gold);
+}
+
 .banner__modulos {
   display: flex;
   flex-wrap: wrap;
@@ -749,9 +888,11 @@
   position: absolute;
   inset: auto 0 0;
   display: grid;
+  align-content: start;     /* nomes na mesma altura nos dois cards, mesmo com cargos de 2 ou 3 linhas */
   gap: 2px;
+  min-height: 9.5rem;
   padding: var(--space-6) var(--space-3) var(--space-3);
-  background: linear-gradient(180deg, rgb(19 50 113 / 0) 0%, rgb(19 50 113 / 0.88) 38%, rgb(19 50 113 / 0.95) 100%);
+  background: linear-gradient(180deg, rgb(19 50 113 / 0) 0%, rgb(19 50 113 / 0.88) 30%, rgb(19 50 113 / 0.95) 100%);
   text-align: center;
 }
 
@@ -773,6 +914,7 @@
 @media (max-width: 767.98px) {
   .prof figcaption {
     position: static;
+    min-height: 0;
     flex: 1;   /* a legenda ocupa todo o espaço que sobra no cartão, sem faixa vazia */
     padding: var(--space-3) var(--space-2);
     background: var(--navy);
@@ -818,10 +960,21 @@
 
 @media (min-width: 1024px) {
   .banner {
-    grid-template-columns: 6fr 5fr;
-    gap: var(--space-7);
+    /* Duas metades como na referência: texto à esquerda, moldura dos professores ocupando toda a
+       coluna da direita (antes 6fr/5fr com cards pequenos deixava um vão no meio) */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-6);
     align-items: center;
-    padding: var(--space-8) var(--space-7);
+    padding: var(--space-7) var(--space-6) var(--space-7) var(--space-7);
+  }
+
+  .banner__profs {
+    gap: var(--space-4);
+    padding: var(--space-4);
+  }
+
+  .banner__sub {
+    max-width: 38ch;
   }
 }
 

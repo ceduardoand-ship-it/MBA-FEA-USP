@@ -20,6 +20,11 @@
   background: var(--fundo-suave);
 }
 
+/* Duas seções claras seguidas (Formato → Aula aberta): sem somar os dois espaçamentos */
+.fundo-suave + .fundo-suave {
+  padding-top: 0;
+}
+
 /* Grid: 4 colunas (mobile), 8 (tablet), 12 (desktop) */
 .grid {
   display: grid;
